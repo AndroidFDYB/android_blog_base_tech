@@ -28,7 +28,7 @@ import com.fdyb.android_blog_base_tech.ui.theme.Android_blog_base_techTheme
 
 class MainActivity : ComponentActivity() {
     val itemData = listOf("动态替换图标", "动态切换主题")
-    private lateinit var audioFocusManager: AudioFocusManager
+//    private lateinit var audioFocusManager: AudioFocusManager
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -60,41 +60,41 @@ class MainActivity : ComponentActivity() {
 
     private fun initAudioManager() {
 
-        // 初始化 AudioFocusManager
-        audioFocusManager = AudioFocusManager(this)
-
-        // 设置音频焦点变化的回调
-        audioFocusManager.setOnAudioFocusChangeListener { focusChange ->
-            when (focusChange) {
-                AudioManager.AUDIOFOCUS_GAIN -> {
-                    // 获取音频焦点
-                    println("Audio focus gained")
-                }
-                AudioManager.AUDIOFOCUS_LOSS -> {
-                    // 永久失去音频焦点
-                    println("Audio focus lost permanently")
-                }
-                AudioManager.AUDIOFOCUS_LOSS_TRANSIENT -> {
-                    // 临时失去音频焦点
-                    println("Audio focus lost temporarily")
-                }
-                AudioManager.AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK -> {
-                    // 临时失去音频焦点，但可以降低音量继续播放
-                    println("Audio focus lost temporarily, can duck")
-                }
-            }
-        }
-
-        // 请求音频焦点
-        val result = audioFocusManager.requestAudioFocus()
-        when (result) {
-            AudioManager.AUDIOFOCUS_REQUEST_GRANTED -> {
-                println("Audio focus request granted")
-            }
-            AudioManager.AUDIOFOCUS_REQUEST_FAILED -> {
-                println("Audio focus request failed")
-            }
-        }
+//        // 初始化 AudioFocusManager
+//        audioFocusManager = AudioFocusManager(this)
+//
+//        // 设置音频焦点变化的回调
+//        audioFocusManager.setOnAudioFocusChangeListener { focusChange ->
+//            when (focusChange) {
+//                AudioManager.AUDIOFOCUS_GAIN -> {
+//                    // 获取音频焦点
+//                    println("Audio focus gained")
+//                }
+//                AudioManager.AUDIOFOCUS_LOSS -> {
+//                    // 永久失去音频焦点
+//                    println("Audio focus lost permanently")
+//                }
+//                AudioManager.AUDIOFOCUS_LOSS_TRANSIENT -> {
+//                    // 临时失去音频焦点
+//                    println("Audio focus lost temporarily")
+//                }
+//                AudioManager.AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK -> {
+//                    // 临时失去音频焦点，但可以降低音量继续播放
+//                    println("Audio focus lost temporarily, can duck")
+//                }
+//            }
+//        }
+//
+//        // 请求音频焦点
+//        val result = audioFocusManager.requestAudioFocus()
+//        when (result) {
+//            AudioManager.AUDIOFOCUS_REQUEST_GRANTED -> {
+//                println("Audio focus request granted")
+//            }
+//            AudioManager.AUDIOFOCUS_REQUEST_FAILED -> {
+//                println("Audio focus request failed")
+//            }
+//        }
     }
 
     private fun jumpToDetail(index:Int) {
@@ -105,7 +105,7 @@ class MainActivity : ComponentActivity() {
     override fun onDestroy() {
         super.onDestroy()
         // 放弃音频焦点
-        audioFocusManager.abandonAudioFocus()
+//        audioFocusManager.abandonAudioFocus()
     }
 }
 
